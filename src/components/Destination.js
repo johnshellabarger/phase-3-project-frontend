@@ -1,9 +1,12 @@
 import React from 'react'
+import ActivitiesContainer from './Activities/DayContainer.js'
+const Destination = ({destination}) => {
 
-const Destination = () => {
     return (
         <div>
-            <Destination />
+            <h1>Hello</h1>
+            <h2>{destination.location}</h2>
+            <DayContainer />
         </div>
     )
 }

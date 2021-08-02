@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Destination from './Destination'
 
 const PlanTrip = () => {
     const [destination, setDestination] = useState({})
@@ -39,11 +40,6 @@ const PlanTrip = () => {
         })
         .then(response => response.json())
         .then(data => setDestination(data))
-        setFormData({
-            location: "",
-            start_date: "",
-            end_date: ""
-        })
 
       }
 
@@ -55,6 +51,8 @@ const PlanTrip = () => {
                 <span id='end-date' className="pb-1 pt-2 w-32"><input required name='end_date' type="datetime-local" onChange={handleOnChange}/></span>
                 <button type='submit'>Create Trip</button>
             </form>
+            <Destination destination={destination}/>
+
         </div>
     )
 }

@@ -1,10 +1,20 @@
 import React from 'react'
 import Day from './Day'
 
-const DaysList = () => {
+const DaysList = ({ daysOnTrip }) => {
+    const days = daysOnTrip()
+    const array = new Array(days).fill('0')
+    console.log(array)
+
     return (
         <div>
-            <Day />
+            {array.map((item) => {
+                return (
+                    <Day 
+            
+                    />
+                )
+            })}
         </div>
     )
 }

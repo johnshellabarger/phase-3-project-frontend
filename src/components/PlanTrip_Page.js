@@ -1,9 +1,6 @@
 import React, {useState} from 'react'
 import Destination from './Destination'
-
 import DestinationForum from './DestinationForum'
-
-
 
 const PlanTrip = () => {
     const [destination, setDestination] = useState({})
@@ -13,7 +10,6 @@ const PlanTrip = () => {
         start_date: "",
         end_date: ""
     })
-
 
     function handleOnChange(event){
         setFormData({

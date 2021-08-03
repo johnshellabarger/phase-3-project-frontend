@@ -1,11 +1,13 @@
 import React from 'react';
 import DayList from './DaysList';
 
-const DayContainer = () => {
+const DayContainer = ({ daysOnTrip }) => {
 
     return (
         <div>
-            <DayList />
+            <DayList 
+                daysOnTrip = {daysOnTrip}
+            />
         </div>
     )
 }

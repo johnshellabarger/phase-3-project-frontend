@@ -46,9 +46,6 @@ const NewActivityForm = ({activities, setActivities, onNewActivitySubmit}) => {
         })
       }
 
-
-
-
     return (
         <div>
             <form onSubmit={handleNewActivity}>

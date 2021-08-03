@@ -1,11 +1,11 @@
 import React from 'react';
-import ActivitiesList from './ActivitiesList';
+import DayList from './DaysList';
 
 const DayContainer = () => {
 
     return (
         <div>
-            <ActivitiesList />
+            <DayList />
         </div>
     )
 }

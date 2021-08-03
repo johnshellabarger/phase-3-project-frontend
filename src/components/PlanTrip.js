@@ -39,7 +39,6 @@ const PlanTrip = () => {
         })
         .then(response => response.json())
         .then(data => setDestination(data))
-
       }
 
     return (

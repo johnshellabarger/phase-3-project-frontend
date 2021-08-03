@@ -27,7 +27,6 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
             start_time: newActivity.start_time,
             end_time: newActivity.end_time
         }
-        onNewActivitySubmit(createdActivity)
         
         fetch(`http://localhost:9292/activities`, {
           method : 'POST',

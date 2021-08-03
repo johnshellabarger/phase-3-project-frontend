@@ -1,7 +1,7 @@
 import React from 'react'
 import Destination from './Destination'
 
-const DestinationForum = ({handleOnChange, handleSubmit, formData, destination }) => {
+const DestinationForm = ({handleOnChange, handleSubmit, formData, destination }) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -14,4 +14,4 @@ const DestinationForum = ({handleOnChange, handleSubmit, formData, destination }
     )
 }
 
-export default DestinationForum
+export default DestinationForm

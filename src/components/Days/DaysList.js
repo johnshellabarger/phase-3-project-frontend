@@ -3,7 +3,7 @@ import Day from './Day'
 import { useState } from 'react'
 
 const DaysList = ({ daysOnTrip, destination }) => {
-    const days = daysOnTrip()
+    const days = daysOnTrip() + 1
     const array = new Array(days).fill('0')
     const [count, setCount] = useState(0);
 

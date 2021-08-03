@@ -24,15 +24,15 @@ const Destination = ({destination}) => {
     }
 
     function tripLength(strDate, endDate){
-    if(destination.start_date, destination.end_date){
-    const start = strDate.split('T')[0]
-    const end = endDate.split('T')[0]
-    const startMonth = start.split('-')[1]
-    const startDay = start.split('-')[2]
-    const endMonth = end.split('-')[1]
-    const endDay = end.split('-')[2]
-    return `${startMonth}/${startDay} - ${endMonth}/${endDay}`
-    }
+        if(destination.start_date, destination.end_date){
+            const start = strDate.split('T')[0]
+            const end = endDate.split('T')[0]
+            const startMonth = start.split('-')[1]
+            const startDay = start.split('-')[2]
+            const endMonth = end.split('-')[1]
+            const endDay = end.split('-')[2]
+            return `${startMonth}/${startDay} - ${endMonth}/${endDay}`
+        }
     }
 
     return (

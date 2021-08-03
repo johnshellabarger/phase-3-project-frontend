@@ -25,7 +25,7 @@ const NewActivityForm = ({activities, setActivities, onNewActivitySubmit}) => {
             activity: newActivity.activity,
             description: newActivity.description,
             start_time: newActivity.start_time,
-            end_time: newActivity.end_time
+            end_time: newActivity.end_time.
         }
         
         fetch(`http://localhost:9292/activities`, {

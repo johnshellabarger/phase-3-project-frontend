@@ -1,10 +1,10 @@
 import React from 'react'
 import Activity from './Activity'
 
-const ActivitiesList = () => {
+const ActivitiesList = ({activities}) => {
     return (
         <div>
-            <Activity />
+            <Activity activities={activities}/>
         </div>
     )
 }

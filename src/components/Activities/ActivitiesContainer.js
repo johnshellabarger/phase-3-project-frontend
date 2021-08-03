@@ -16,6 +16,8 @@ const ActivitiesContainer = () => {
                 activities={activities} 
                 setActivities={setActivities} 
                 onNewActivitySubmit={onNewActivitySubmit}/>
+
+                <ActivitiesList activities={activities}/>
         </div>
     )
 }

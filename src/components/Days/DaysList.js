@@ -11,7 +11,7 @@ const DaysList = ({ daysOnTrip }) => {
             {array.map((item) => {
                 return (
                     <Day 
-            
+                        key = {item.index}
                     />
                 )
             })}

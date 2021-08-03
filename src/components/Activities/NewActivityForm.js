@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 
-const NewActivityForm = ({activities, setActivities, onNewActivitySubmit}) => {
+const NewActivityForm = ({ onNewActivitySubmit}) => {
 
     const [newActivity, setNewActivity] = useState({
         activity: "",
@@ -27,6 +27,7 @@ const NewActivityForm = ({activities, setActivities, onNewActivitySubmit}) => {
             start_time: newActivity.start_time,
             end_time: newActivity.end_time
         }
+        onNewActivitySubmit(createdActivity)
         
         fetch(`http://localhost:9292/activities`, {
           method : 'POST',

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Destination from './Destination'
-import DestinationForum from './DestinationForum'
+import DestinationForm from './DestinationForm'
 
 const PlanTrip = () => {
     const [destination, setDestination] = useState({})
@@ -44,7 +44,7 @@ const PlanTrip = () => {
     return (
         <>
             {isHidden ? (<Destination destination = { destination }/>) : (
-                <DestinationForum 
+                <DestinationForm 
                 handleOnChange = {handleOnChange}
                 handleSubmit = {handleSubmit}
                 formData = {formData}

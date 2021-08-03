@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import NewActivityForm from './NewActivityForm'
+import ActivitiesList from './ActivitiesList'
 
 const ActivitiesContainer = () => {
     const [activities, setActivities] = useState([])
@@ -12,10 +13,8 @@ const ActivitiesContainer = () => {
 
     return (
         <div>
-            <NewActivityForm 
-                activities={activities} 
-                setActivities={setActivities} 
-                onNewActivitySubmit={onNewActivitySubmit}/>
+            <NewActivityForm onNewActivitySubmit={onNewActivitySubmit}/>
+            <ActivitiesList activities={activities}/>
         </div>
     )
 }

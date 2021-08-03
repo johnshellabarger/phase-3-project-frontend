@@ -10,7 +10,6 @@ const PlanTrip = () => {
     })
 
 
-
     function handleOnChange(event){
         event.preventDefault()
 

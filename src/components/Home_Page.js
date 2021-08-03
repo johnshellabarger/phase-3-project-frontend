@@ -1,5 +1,5 @@
 import React from 'react';
-import PlanTrip from './PlanTrip';
+import PlanTrip from './PlanTrip_Page';
 function Home(){
 
     return(

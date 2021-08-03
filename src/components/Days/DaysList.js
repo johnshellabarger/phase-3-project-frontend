@@ -1,7 +1,7 @@
 import React from 'react'
 import Day from './Day'
 
-const DaysList = ({ daysOnTrip }) => {
+const DaysList = ({ daysOnTrip, destination }) => {
     const days = daysOnTrip()
     const array = new Array(days).fill('0')
     console.log(array)
@@ -12,6 +12,7 @@ const DaysList = ({ daysOnTrip }) => {
                 return (
                     <Day 
                         key = {item.index}
+                        destination = {destination}
                     />
                 )
             })}

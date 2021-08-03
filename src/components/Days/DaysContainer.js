@@ -8,7 +8,6 @@ const DayContainer = ({ daysOnTrip, destination }) => {
             <DayList 
                 daysOnTrip = {daysOnTrip}
                 destination = {destination}
-                
             />
         </div>
     )

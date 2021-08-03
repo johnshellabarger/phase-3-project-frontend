@@ -20,7 +20,6 @@ const PlanTrip = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData);
         const newDestination =
         {
             location: formData.location,
@@ -37,8 +36,10 @@ const PlanTrip = () => {
     
         })
         .then(response => response.json())
-        .then(data => setDestination(data))
-        setisHidden(!isHidden)
+        .then(data => {
+            setDestination(data)
+            setisHidden(!isHidden)
+        })
       }
 
     return (

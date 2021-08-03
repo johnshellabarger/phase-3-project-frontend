@@ -1,10 +1,13 @@
 import React from 'react'
 import ActivitiesContainer from '../Activities/ActivitiesContainer'
 
-const Day = ({destination}) => {
+const Day = ({destination, date}) => {
+
+    console.log(date)
     return (
         <div>
-            <h1>Date: {destination.start_date}</h1>
+            <h1>Date: {date.toString()}</h1>
+
             <ActivitiesContainer />
         </div>
     )

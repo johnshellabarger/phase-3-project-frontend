@@ -24,45 +24,42 @@ const DaysList = ({ daysOnTrip, trip}) => {
            
         }
 
-    const eachDay = array.map((item, i) => addDays(i))
-    const newTripDays = []
-    console.log(eachDay, tripDays)
-
-
-    useEffect(async() => {
+        const eachDay = array.map((item, i) => addDays(i))
         
         
-        eachDay.forEach(async(day) => {
-            // console.log(eachDay, tripDays)
-           await fetch(`http://localhost:9292/days`, {
+        
+        useEffect(() => {
+            
+            
+            fetch(`http://localhost:9292/days`, {
                 method: 'POST',
                 headers:{
                     "Content-Type" : "application/json"
                 },
                 body: JSON.stringify({
-                    date : day,
+                    dates : eachDay,
                     trip_id: trip.id
                 })
             })
             .then(response => response.json())
-            .then(data => newTripDays.push(data))
-        })
+            .then(data => setTripDays(data))
+        
          
-         setTripDays(newTripDays)
+         
             
     }, [trip])
+    
+    
+    
+
     console.log(tripDays)
-    
-    
-
-
 
     return (
         <div>
-            {tripDays.map((day) => {
+            {tripDays.map((day, i) => {
                 return (
                     <Day 
-                        key = {day.index}
+                        key = {i}
                         trip = {trip}
                         date = {day.date}
                     />

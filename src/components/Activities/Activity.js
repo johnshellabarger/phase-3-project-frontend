@@ -1,13 +1,6 @@
 import React from 'react'
 import { Button, Form} from 'semantic-ui-react'
 
-function handleDelete(e){
-    const id = e.target.id
-    fetch(`http://localhost:9292/activities/${id}`, {
-        method: 'DELETE'
-    })
-}
-
 
 const Activity = ({activity, description, startTime, endTime, id, activities, setActivities}) => {
 

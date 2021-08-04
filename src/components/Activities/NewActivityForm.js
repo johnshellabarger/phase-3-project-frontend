@@ -6,8 +6,8 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
     const [newActivity, setNewActivity] = useState({
         activity: "",
         description: "",
-        start_time: "",
-        end_time: ""
+        start_time: "start_time",
+        end_time: "end_time"
     })
 
     function parseTime(timeString){
@@ -47,12 +47,14 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
     
         })
         .then(response => response.json())
-        .then(data => onNewActivitySubmit(data))
+        .then(data => {
+          console.log(data)
+          onNewActivitySubmit(data)})
         setNewActivity({
             activity: "",
             description: "",
-            start_time: "",
-            end_time: ""
+            start_time: "start_time",
+            end_time: "end_time"
         })
       }
 
@@ -61,7 +63,7 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
             <form onSubmit={handleNewActivity}>
                 <input placeholder='Activity' name='activity' value={newActivity.activity} onChange={handleValue}/>
                 <input placeholder='description' name='description' value={newActivity.description} onChange={handleValue}/>
-                <select id='start_time' name='start_time' onChange={handleValue}>
+                <select id='start_time' name='start_time' value={newActivity.start_time} onChange={handleValue}>
                     <option value='12:00'>12:00 am</option>
                     <option value='12:30'>12:30 am</option>
                     <option value='1:00'>1:00 am</option>
@@ -86,11 +88,12 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
                     <option value='10:30'>10:30 am</option>
                     <option value='11:00'>11:00 am</option>
                     <option value='11:30'>11:30 am</option>
+                    <option value='start_time' selected>Start Time</option>
                     <option value='12:00'>12:00 pm</option>
                     <option value='12:30'>12:30 pm</option>
-                    <option value= '13:00:00' >1:00 pm</option>
+                    <option value='1:00'>1:00 pm</option>
                     <option value='1:30'>1:30 pm</option>
-                    <option value='14:00:00'>2:00 pm</option>
+                    <option value='2:00'>2:00 pm</option>
                     <option value='2:30'>2:30 pm</option>
                     <option value='3:00'>3:00 pm</option>
                     <option value='3:30'>3:30 pm</option>
@@ -111,8 +114,8 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
                     <option value='11:00'>11:00 pm</option>
                     <option value='11:30'>11:30 pm</option>
                 </select>
-                <select id='end_time' name='end_time' onChange={handleValue}>
-                <option value='12:00'>12:00 am</option>
+                <select id='end_time' name='end_time' value={newActivity.end_time} onChange={handleValue}>
+                    <option value='12:00'>12:00 am</option>
                     <option value='12:30'>12:30 am</option>
                     <option value='1:00'>1:00 am</option>
                     <option value='1:30'>1:30 am</option>
@@ -136,11 +139,12 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
                     <option value='10:30'>10:30 am</option>
                     <option value='11:00'>11:00 am</option>
                     <option value='11:30'>11:30 am</option>
+                    <option value='end_time' selected>End Time</option>
                     <option value='12:00'>12:00 pm</option>
                     <option value='12:30'>12:30 pm</option>
                     <option value='1:00'>1:00 pm</option>
                     <option value='1:30'>1:30 pm</option>
-                    <option value='14:00:00'>2:00 pm</option>
+                    <option value='2:00'>2:00 pm</option>
                     <option value='2:30'>2:30 pm</option>
                     <option value='3:00'>3:00 pm</option>
                     <option value='3:30'>3:30 pm</option>

@@ -1,11 +1,10 @@
 import React from 'react'
 import Day from './Day'
 
-
 const DaysList = ({ daysOnTrip, destination }) => {
     const days = daysOnTrip() + 1
     const array = new Array(days).fill('0')
-    
+
 
     function addDays(days) {
         if(destination.start_date && destination.end_date){

@@ -48,7 +48,7 @@ const DaysList = ({ daysOnTrip, trip}) => {
             .then(data => newTripDays.push(data))
         })
          
-        await setTripDays(newTripDays)
+         setTripDays(newTripDays)
             
     }, [trip])
     console.log(tripDays)

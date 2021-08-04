@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import DayList from './DaysList';
 
 const DayContainer = ({ daysOnTrip, trip}) => {

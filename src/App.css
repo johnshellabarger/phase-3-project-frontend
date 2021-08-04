@@ -30,7 +30,21 @@ p{
 
 .destinationForm{
     text-align: center;
-    color: orange;
+    align-content: center;
     display: inline-block;
+    vertical-align: middle;
+    justify-content: center; 
+    line-height: normal;
+    color: orange;
+}
+
+.destinationFormContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#root{
+    height: 100vh;
 }
 

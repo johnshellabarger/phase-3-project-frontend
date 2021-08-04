@@ -7,7 +7,7 @@ const ActivitiesContainer = () => {
     
     function onNewActivitySubmit(data){
 
-        if(data.start_time, data.end_time){
+        if(data.start_time && data.end_time){
             // const start = data.start_time.split('T')[1]
             // const end = data.end_time.split('T')[1]
             const startHours = new Date(data.start_time).getHours()

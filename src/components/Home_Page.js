@@ -4,7 +4,7 @@ function Home(){
 
     return(
         <div>
-            <h1>Plan Your Trip</h1>
+            <h1 style={{color: "orange"}}>Plan Your Trip</h1>
             <PlanTrip />
         </div>
 

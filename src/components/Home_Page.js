@@ -4,7 +4,8 @@ function Home(){
 
     return(
         <div>
-            <h1 style={{color: "orange"}}>Plan Your Trip</h1>
+            <h1>jet-setter journal &#128640;</h1>
+            <p>Plan Your New Trip</p>
             <PlanTrip />
         </div>
 

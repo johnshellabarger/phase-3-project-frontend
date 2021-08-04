@@ -12,3 +12,25 @@
     position: absolute;
     }
 
+h1{
+    color: orange;
+    font-size: 300%;
+    font-family: verdana;
+    /* border: 20px solid powderblue;
+    padding: 300px; */
+}
+
+p{
+    font-size: 150%;
+    font-family: verdana;
+    font-weight: bold;
+    text-align: center;
+    color: orange;
+}
+
+.destinationForm{
+    text-align: center;
+    color: orange;
+    display: inline-block;
+}
+

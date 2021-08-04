@@ -18,7 +18,7 @@ const Day = ({destination, date}) => {
         <div>
             <h1><FaChevronDown onClick={toggleDay}></FaChevronDown>{`${day}, ${month} ${month_day}`}<FaCalendarWeek></FaCalendarWeek></h1>
             {isHidden ? (null) : (<ActivitiesContainer />) }
-            <div class="line"></div>
+            <div className="line"></div>
         </div>
     )
 }

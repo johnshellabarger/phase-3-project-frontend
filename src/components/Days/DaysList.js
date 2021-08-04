@@ -1,14 +1,13 @@
 import React from 'react'
 import Day from './Day'
-import { useState } from 'react'
 
 const DaysList = ({ daysOnTrip, destination }) => {
     const days = daysOnTrip() + 1
     const array = new Array(days).fill('0')
-    const [count, setCount] = useState(0);
+
 
     function addDays(days) {
-        if(destination.start_date, destination.end_date){
+        if(destination.start_date && destination.end_date){
             const start = destination.start_date.split('T')[0]
             const startYear = (start.split('-')[0])
             const startMonth = (start.split('-')[1])

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form} from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import {FaTrash} from "react-icons/fa"
 import { FaMapMarker, FaRegStickyNote} from "react-icons/fa"
 import { FaPlus } from "react-icons/fa"

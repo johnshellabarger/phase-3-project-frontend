@@ -3,7 +3,7 @@ import ActivitiesContainer from '../Activities/ActivitiesContainer'
 import { FaChevronDown,FaCalendarWeek } from "react-icons/fa"
 import { useState } from 'react'
 
-const Day = ({destination, date}) => {
+const Day = ({ date}) => {
     const [isHidden, setIsHidden] = useState(false)
 
     const day = date.toString().split(" ")[0]
@@ -13,6 +13,8 @@ const Day = ({destination, date}) => {
     function toggleDay(){
         setIsHidden(!isHidden)
     }
+
+
 
     return (
         <div>

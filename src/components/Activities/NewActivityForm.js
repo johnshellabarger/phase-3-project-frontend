@@ -6,13 +6,12 @@ import { Button } from 'semantic-ui-react'
 
 const NewActivityForm = ({ onNewActivitySubmit}) => {
     const [newActivity, setNewActivity] = useState({
-        activity: "",
+        name: "",
         description: "",
         start_time: "start_time",
         end_time: "end_time"
     })
 
-    console.log(newActivity)
 
     function parseTime(timeString){
       if (timeString === '') return null;
@@ -35,7 +34,7 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
         event.preventDefault();
         const createdActivity =
         {
-            activity: newActivity.activity,
+            name: newActivity.name,
             description: newActivity.description,
             start_time: parseTime(newActivity.start_time),
             end_time: parseTime(newActivity.end_time)
@@ -53,7 +52,7 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
           console.log(data)
           onNewActivitySubmit(data)})
         setNewActivity({
-            activity: "",
+            name: "",
             description: "",
             start_time: "start_time",
             end_time: "end_time"
@@ -63,7 +62,7 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
     return (
         <div>
             <form onSubmit={handleNewActivity}>
-                <input placeholder='Activity' name='activity' value={newActivity.activity} onChange={handleValue}/>
+                <input placeholder='Activity' name='activity' value={newActivity.name} onChange={handleValue}/>
                 <input placeholder='description' name='description' value={newActivity.description} onChange={handleValue}/>
                 <select id='start_time' name='start_time' value={newActivity.start_time} onChange={handleValue}>
                     <option value='12:00'>12:00 am</option>

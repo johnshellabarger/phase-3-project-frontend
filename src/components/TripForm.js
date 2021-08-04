@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form} from 'semantic-ui-react'
 
-const DestinationForm = ({handleOnChange, handleSubmit, formData, destination }) => {
+const TripForm = ({handleOnChange, handleSubmit, formData }) => {
     return (
         <div>
             <Form onSubmit={handleSubmit}>
@@ -14,4 +14,4 @@ const DestinationForm = ({handleOnChange, handleSubmit, formData, destination })
     )
 }
 
-export default DestinationForm
+export default TripForm

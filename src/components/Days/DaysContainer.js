@@ -1,14 +1,17 @@
 import React from 'react';
 import DayList from './DaysList';
 
-const DayContainer = ({ daysOnTrip, destination }) => {
+const DayContainer = ({ daysOnTrip, trip}) => {
+    
 
     return (
         <div>
             <h1>Itinerary</h1>
             <DayList 
                 daysOnTrip = {daysOnTrip}
-                destination = {destination}
+                trip = {trip}
+                
+
             />
         </div>
     )

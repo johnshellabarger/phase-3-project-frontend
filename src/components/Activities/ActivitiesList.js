@@ -8,8 +8,8 @@ const ActivitiesList = ({activities, setActivities}) => {
                 return(
                 <Activity 
                     activities={activities}
-                    activity={activity.activity} 
                     setActivities={setActivities}
+                    name={activity.name} 
                     description={activity.description} 
                     startTime={activity.start_time} 
                     endTime={activity.end_time}

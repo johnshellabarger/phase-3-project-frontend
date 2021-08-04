@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
-import Destination from './Destination'
-import DestinationForm from './DestinationForm'
+import Trip from './Trip'
+import TripForm from './TripForm'
 
 const PlanTrip = () => {
-    const [destination, setDestination] = useState({})
+    const [trip, setTrip] = useState({})
     const [isHidden, setisHidden] = useState(false)
     const [formData, setFormData] = useState({
         location: "",
         start_date: "",
-        end_date: ""
+        end_date: "",
     })
 
     function handleOnChange(event){
@@ -20,36 +20,48 @@ const PlanTrip = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        const newDestination =
+        
+        const newTrip =
         {
             location: formData.location,
             start_date: formData.start_date,
             end_date: formData.end_date
         }
         
-        fetch(`http://localhost:9292/destinations`, {
+        fetch(`http://localhost:9292/trips`, {
           method : 'POST',
           headers : {
             "Content-type" : "application/json"
           },
-          body : JSON.stringify(newDestination)
+          body : JSON.stringify(newTrip)
     
         })
         .then(response => response.json())
         .then(data => {
-            setDestination(data)
+            setTrip(data)
             setisHidden(!isHidden)
         })
-      }
+
+    }
+
+         
+
+
+        
+
+        
+        
+      
 
     return (
         <>
-            {isHidden ? (<Destination destination = { destination }/>) : (
-                <DestinationForm 
+            {isHidden ? (<Trip trip = { trip } />) : (
+                <TripForm 
                 handleOnChange = {handleOnChange}
                 handleSubmit = {handleSubmit}
                 formData = {formData}
-                destination = {destination}
+                trip = {trip}
+                
             />)
             }
         </>

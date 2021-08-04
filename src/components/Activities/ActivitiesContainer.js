@@ -18,10 +18,11 @@ const ActivitiesContainer = () => {
             const end = `${endHours}:${endMinutes}`
             const newActivity = {
                 id: data.id,
-                activity: data.activity,
+                name: data.name,
                 description: data.description,
                 start_time: start,
                 end_time: end
+                // day_id: 
             }
             console.log(newActivity)
         const newList = [...activities, newActivity]

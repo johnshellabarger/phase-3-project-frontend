@@ -1,14 +1,16 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Day from './Day'
 
-const DaysList = ({ daysOnTrip, destination }) => {
+
+const DaysList = ({ daysOnTrip, trip}) => {
+    
+    const [tripDays, setTripDays] = useState([])
     const days = daysOnTrip() + 1
     const array = new Array(days).fill('0')
 
-
     function addDays(days) {
-        if(destination.start_date && destination.end_date){
-            const start = destination.start_date.split('T')[0]
+        if(trip.start_date && trip.end_date){
+            const start = trip.start_date.split('T')[0]
             const startYear = (start.split('-')[0])
             const startMonth = (start.split('-')[1])
             const startDay = (start.split('-')[2])
@@ -22,19 +24,54 @@ const DaysList = ({ daysOnTrip, destination }) => {
            
         }
 
+    const eachDay = array.map((item, i) => addDays(i))
+    const newTripDays = []
+    console.log(eachDay, tripDays)
+
+
+    useEffect(async() => {
+        
+        
+        eachDay.forEach(async(day) => {
+            // console.log(eachDay, tripDays)
+           await fetch(`http://localhost:9292/days`, {
+                method: 'POST',
+                headers:{
+                    "Content-Type" : "application/json"
+                },
+                body: JSON.stringify({
+                    date : day,
+                    trip_id: trip.id
+                })
+            })
+            .then(response => response.json())
+            .then(data => newTripDays.push(data))
+        })
+         
+         setTripDays(newTripDays)
+            
+    }, [trip])
+    console.log(tripDays)
+    
+    
+
+
 
     return (
         <div>
-            {array.map((item, i) => {
+            {tripDays.map((day) => {
                 return (
                     <Day 
-                        key = {item.index}
-                        destination = {destination}
-                        date = {addDays(i)}
+                        key = {day.index}
+                        trip = {trip}
+                        date = {day.date}
                     />
                     
-                )
-            })}
+            
+            
+            )})}
+                
+                
         </div>
     )
 }

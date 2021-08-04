@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 
 
-const Activity = ({activity, description, startTime, endTime, id, activities, setActivities}) => {
+const Activity = ({name, description, startTime, endTime, id, activities, setActivities}) => {
     const [noteShowing, setNoteShowing] = useState(false)
     
     function handleDelete(){
@@ -25,8 +25,8 @@ const Activity = ({activity, description, startTime, endTime, id, activities, se
     return (
         <div>
             <p>Start: <span>{startTime}</span> End: <span>{endTime}</span></p>
-            <h2><FaMapMarker></FaMapMarker>{activity}</h2>
-            <h2>{description}</h2>
+            <h3><FaMapMarker></FaMapMarker>{name}</h3>
+            <h6>{description}</h6>
             {noteShowing ? (<span><FaRegStickyNote></FaRegStickyNote>this is a note<FaTrash></FaTrash></span>) : (null)}
             <Button  onClick={handleAddNote}><FaPlus></FaPlus> Note</Button>
             <Button onClick={handleDelete} id={id}><FaTrash></FaTrash></Button>

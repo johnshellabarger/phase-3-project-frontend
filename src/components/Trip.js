@@ -3,13 +3,13 @@ import DaysContainer from './Days/DaysContainer.js'
 import { FaChevronDown,FaCalendar } from "react-icons/fa"
 import { useState } from 'react'
 
-const Destination = ({ destination }) => {
+const Trip = ({ trip }) => {
     const [isHidden, setIsHidden] = useState(false)
 
     function daysOnTrip(){
-        if(destination.start_date && destination.end_date){
-            const start = destination.start_date.split('T')[0]
-            const end = destination.end_date.split('T')[0]
+        if(trip.start_date && trip.end_date){
+            const start = trip.start_date.split('T')[0]
+            const end = trip.end_date.split('T')[0]
             const startYear = (start.split('-')[0])
             const startMonth = (start.split('-')[1])
             const startDay = (start.split('-')[2])
@@ -27,7 +27,7 @@ const Destination = ({ destination }) => {
     }
 
     function tripLength(strDate, endDate){
-        if(destination.start_date && destination.end_date){
+        if(trip.start_date && trip.end_date){
             const start = strDate.split('T')[0]
             const end = endDate.split('T')[0]
             const startMonth = start.split('-')[1]
@@ -45,13 +45,14 @@ const Destination = ({ destination }) => {
     return (
         <div>
             <div>
-                <h1>{destination.location}</h1>
-                <h4><FaCalendar></FaCalendar>{tripLength(destination.start_date, destination.end_date)}</h4>
+                <h1>{trip.location}</h1>
+                <h4><FaCalendar></FaCalendar>{tripLength(trip.start_date, trip.end_date)}</h4>
             </div>
            
             <DaysContainer 
                 daysOnTrip = {daysOnTrip}
-                destination = {destination}
+                trip = {trip}
+            
             />
             <span>
                 <h1><FaChevronDown onClick={handleNotes}></FaChevronDown>Notes</h1>
@@ -66,4 +67,4 @@ const Destination = ({ destination }) => {
     )
 }
 
-export default Destination
+export default Trip

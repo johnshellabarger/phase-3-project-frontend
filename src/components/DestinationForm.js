@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button, Form} from 'semantic-ui-react'
-import Destination from './Destination'
 
 const DestinationForm = ({handleOnChange, handleSubmit, formData, destination }) => {
     return (

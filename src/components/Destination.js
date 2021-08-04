@@ -1,7 +1,11 @@
 import React from 'react'
 import DaysContainer from './Days/DaysContainer.js'
+import { Card, Icon } from 'semantic-ui-react'
+import { FaChevronDown,FaCalendar } from "react-icons/fa"
+import { useState } from 'react'
 
-const Destination = ({destination}) => {
+const Destination = ({ destination }) => {
+    const [isHidden, setIsHidden] = useState(false)
 
     function daysOnTrip(){
         if(destination.start_date, destination.end_date){
@@ -35,15 +39,30 @@ const Destination = ({destination}) => {
         }
     }
 
+    function handleNotes(){
+        setIsHidden(!isHidden)
+    }
+
     return (
         <div>
-            <h1>{destination.location}</h1>
-            <h2>{tripLength(destination.start_date, destination.end_date)}</h2>
+            <div>
+                <h1>{destination.location}</h1>
+                <h4><FaCalendar></FaCalendar>{tripLength(destination.start_date, destination.end_date)}</h4>
+            </div>
            
             <DaysContainer 
                 daysOnTrip = {daysOnTrip}
                 destination = {destination}
             />
+            <span>
+                <h1><FaChevronDown onClick={handleNotes}></FaChevronDown>Notes</h1>
+                {isHidden ? (
+                    <span>
+                        <h1>Hey!</h1>
+                    </span>) : (
+                    null)
+                }
+            </span>
         </div>
     )
 }

@@ -8,36 +8,6 @@ const DaysList = ({ daysOnTrip, trip}) => {
     const days = daysOnTrip() + 1
     const array = new Array(days).fill('0')
 
-    const eachDay = array.map((item, i) => addDays(i))
-    const newTripDays = []
-    console.log(eachDay, tripDays)
-
-
-    useEffect(async() => {
-        
-        
-        await eachDay.forEach(async(day) => {
-            // console.log(eachDay, tripDays)
-           await fetch(`http://localhost:9292/days`, {
-                method: 'POST',
-                headers:{
-                    "Content-Type" : "application/json"
-                },
-                body: JSON.stringify({
-                    date : day,
-                    trip_id: trip.id
-                })
-            })
-            .then(response => response.json())
-            .then(data => newTripDays.push(data))
-        })
-            await setTripDays(newTripDays)
-            
-    }, [trip])
-    console.log(tripDays)
-    
-    
-
     function addDays(days) {
         if(trip.start_date && trip.end_date){
             const start = trip.start_date.split('T')[0]
@@ -53,6 +23,38 @@ const DaysList = ({ daysOnTrip, trip}) => {
         }
            
         }
+
+    const eachDay = array.map((item, i) => addDays(i))
+    const newTripDays = []
+    console.log(eachDay, tripDays)
+
+
+    useEffect(async() => {
+        
+        
+        eachDay.forEach(async(day) => {
+            // console.log(eachDay, tripDays)
+           await fetch(`http://localhost:9292/days`, {
+                method: 'POST',
+                headers:{
+                    "Content-Type" : "application/json"
+                },
+                body: JSON.stringify({
+                    date : day,
+                    trip_id: trip.id
+                })
+            })
+            .then(response => response.json())
+            .then(data => newTripDays.push(data))
+        })
+         
+        await setTripDays(newTripDays)
+            
+    }, [trip])
+    console.log(tripDays)
+    
+    
+
 
 
     return (

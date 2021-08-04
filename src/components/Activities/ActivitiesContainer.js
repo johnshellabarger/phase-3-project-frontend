@@ -29,13 +29,11 @@ const ActivitiesContainer = () => {
     }}
 
  
-
-
-
     return (
         <div>
             <NewActivityForm onNewActivitySubmit={onNewActivitySubmit}/>
             <ActivitiesList activities={activities} setActivities={setActivities}/>
+
         </div>
     )
 }

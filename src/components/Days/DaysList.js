@@ -33,6 +33,7 @@ const DaysList = ({ daysOnTrip, destination }) => {
                         destination = {destination}
                         date = {addDays(i)}
                     />
+                    
                 )
             })}
         </div>

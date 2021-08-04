@@ -5,6 +5,7 @@ const DayContainer = ({ daysOnTrip, destination }) => {
 
     return (
         <div>
+            <h1>Itinerary</h1>
             <DayList 
                 daysOnTrip = {daysOnTrip}
                 destination = {destination}

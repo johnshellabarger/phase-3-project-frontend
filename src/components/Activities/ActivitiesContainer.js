@@ -10,13 +10,10 @@ const ActivitiesContainer = () => {
         setActivities(newList)    
     }
  
-
-
-
     return (
         <div>
-            <NewActivityForm onNewActivitySubmit={onNewActivitySubmit}/>
             <ActivitiesList activities={activities} activities={activities} setActivities={setActivities}/>
+            <NewActivityForm onNewActivitySubmit={onNewActivitySubmit}/>
         </div>
     )
 }

@@ -6,3 +6,9 @@
     width: 60%;
 }
 
+.line{
+    width: 80%;
+    border-bottom: 1px solid black;
+    position: absolute;
+    }
+

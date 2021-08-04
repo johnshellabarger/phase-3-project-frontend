@@ -5,12 +5,7 @@ import { FaMapMarker, FaRegStickyNote} from "react-icons/fa"
 import { FaPlus } from "react-icons/fa"
 import { useState } from 'react'
 
-function handleDelete(e){
-    const id = e.target.id
-    fetch(`http://localhost:9292/activities/${id}`, {
-        method: 'DELETE'
-    })
-}
+
 
 const Activity = ({activity, description, startTime, endTime, id, activities, setActivities}) => {
     const [noteShowing, setNoteShowing] = useState(false)

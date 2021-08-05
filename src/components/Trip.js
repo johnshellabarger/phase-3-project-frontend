@@ -39,12 +39,17 @@ const Trip = ({ trip }) => {
         }
     }
 
+    
+
     function handleNotes(){
         setIsHidden(!isHidden)
     }
 
     function showList(){
         setIsListShowing(!isListShowing)
+        fetch(`https://localhost:9292/days`)
+        .then(response => response.json())
+        .then()
     }
 
     return (

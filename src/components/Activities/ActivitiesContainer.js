@@ -34,7 +34,7 @@ const ActivitiesContainer = ({dayId, activities, setActivities, onNewActivitySub
     return (
         <div>
             <ActivitiesList activities={activities} setActivities={setActivities}/>
-            <NewActivityForm day_id={day_id} onNewActivitySubmit={onNewActivitySubmit}/>
+            <NewActivityForm day_id={dayId} onNewActivitySubmit={onNewActivitySubmit}/>
 
         </div>
     )

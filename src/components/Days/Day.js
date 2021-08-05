@@ -67,7 +67,7 @@ const Day = ({ id, date}) => {
                         <h5 id='dropDownOptions'>Change color</h5>
                     </div>) : (null)}
             </h1>
-                {isHidden ? (null) : (<ActivitiesContainer day_id={id} onNewActivitySubmit={onNewActivitySubmit}/>) }
+                {isHidden ? (null) : (<ActivitiesContainer activities={activities} day_id={id} onNewActivitySubmit={onNewActivitySubmit}/>) }
             <div className='insertSectionSpace'>
             </div>
         </div>

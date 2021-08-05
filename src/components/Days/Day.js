@@ -2,6 +2,7 @@ import React from 'react'
 import ActivitiesContainer from '../Activities/ActivitiesContainer'
 import { FaChevronDown, FaCalendarWeek,FaChevronRight,FaGripHorizontal } from "react-icons/fa"
 import { useState } from 'react'
+import Notepad from '../Notepad'
 
 const Day = ({ day_id, date }) => {
     const [activities, setActivities] = useState([])

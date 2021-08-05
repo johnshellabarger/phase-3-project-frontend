@@ -91,7 +91,7 @@ const Trip = ({ trip }) => {
                     </div>) : (null)}
 
            
-        
+            
             <DaysContainer 
                 daysOnTrip = {daysOnTrip}
                 trip = {trip}

@@ -1,17 +1,31 @@
 import React, {useState, useEffect} from 'react'
 
-const ActivitiesNames = ({day}) => {
+const ActivitiesNames = ({day, getActivityNames}) => {
     const [dayActivities, setDayActivities] = useState([])
-    console.log(day)
+    
         useEffect(() => {
             fetch(`http://localhost:9292/days/${day.id}`)
             .then(response => response.json())
-            .then(data => console.log(data))
-        }, [])
+            .then(data => {setDayActivities(data.activities)})
+        }, [getActivityNames])
+        
+            function renderActivities(){
+                if(dayActivities.length > 0){
+                    return (
+                        dayActivities.map(activity => {
+                            return(
+                            <li>{activity.name}</li>
+                            )})
+                    )
+                }else {
+                  return( <div>No Activities</div>)
+                }
+            }
+        
 
     return (
         <ul>
-            <li>Hi</li>
+            {renderActivities()}
         </ul>
     )
 }

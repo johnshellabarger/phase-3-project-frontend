@@ -2,7 +2,7 @@ import React, {} from 'react'
 import NewActivityForm from './NewActivityForm'
 import ActivitiesList from './ActivitiesList'
 
-const ActivitiesContainer = ({day_id, activities, setActivities, onNewActivitySubmit}) => {
+const ActivitiesContainer = ({day_id, activities, setActivities, getActivityNames, setGetActivityNames, onNewActivitySubmit}) => {
     
     // const [activities, setActivities] = useState([])
     
@@ -34,7 +34,7 @@ const ActivitiesContainer = ({day_id, activities, setActivities, onNewActivitySu
     return (
         <div>
             <ActivitiesList activities={activities} setActivities={setActivities}/>
-            <NewActivityForm day_id={day_id} onNewActivitySubmit={onNewActivitySubmit}/>
+            <NewActivityForm getActivityNames={getActivityNames} setGetActivityNames={setGetActivityNames} day_id={day_id} onNewActivitySubmit={onNewActivitySubmit}/>
 
         </div>
     )

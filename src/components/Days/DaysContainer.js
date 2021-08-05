@@ -1,7 +1,7 @@
 import React from 'react';
 import DayList from './DaysList';
 
-const DayContainer = ({ daysOnTrip, trip }) => {
+const DayContainer = ({ daysOnTrip, trip, getActivityNames, setGetActivityNames }) => {
     
 
     return (
@@ -12,6 +12,8 @@ const DayContainer = ({ daysOnTrip, trip }) => {
                 <DayList 
                     daysOnTrip = {daysOnTrip}
                     trip = {trip}
+                    getActivityNames={getActivityNames}
+                    setGetActivityNames={setGetActivityNames}
                 />
             </div>
             

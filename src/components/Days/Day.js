@@ -3,7 +3,7 @@ import ActivitiesContainer from '../Activities/ActivitiesContainer'
 import { FaChevronDown, FaCalendarWeek,FaChevronRight,FaGripHorizontal } from "react-icons/fa"
 import { useState } from 'react'
 
-const Day = ({ day_id, date }) => {
+const Day = ({ day_id, date, getActivityNames, setGetActivityNames }) => {
     const [activities, setActivities] = useState([])
     const [isHidden, setIsHidden] = useState(false)
     const [isOptionsShowing, setIsOptionsShowing] = useState(false)
@@ -67,7 +67,7 @@ const Day = ({ day_id, date }) => {
                         <h5 id='dropDownOptions'>Change color</h5>
                     </div>) : (null)}
             </h1>
-                {isHidden ? (null) : (<ActivitiesContainer activities={activities} day_id={day_id} setActivities={setActivities} onNewActivitySubmit={onNewActivitySubmit}/>) }
+                {isHidden ? (null) : (<ActivitiesContainer activities={activities} day_id={day_id} setActivities={setActivities} getActivityNames={getActivityNames} setGetActivityNames={setGetActivityNames} onNewActivitySubmit={onNewActivitySubmit}/>) }
             <div className='insertSectionSpace'>
             </div>
         </div>

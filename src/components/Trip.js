@@ -8,6 +8,8 @@ const Trip = ({ trip }) => {
     const [isHidden, setIsHidden] = useState(false)
     const [isListShowing, setIsListShowing] = useState(false)
     const [thisTrip, setThisTrip] = useState([])
+    const [getActivityNames, setGetActivityNames] = useState(false)
+    const [dayActivities, setDayActivities] = useState({})
 
     function daysOnTrip(){
         if(trip.start_date && trip.end_date){
@@ -80,6 +82,10 @@ const Trip = ({ trip }) => {
                         <div>
                             <ActivitySummary 
                                 days = {thisTrip.days}
+                                isListShowing={isListShowing}
+                                getActivityNames={getActivityNames}
+                                dayActivities={dayActivities} 
+                                setDayActivities={setDayActivities}
                             />
                         </div>
                     </div>) : (null)}
@@ -89,7 +95,9 @@ const Trip = ({ trip }) => {
             <DaysContainer 
                 daysOnTrip = {daysOnTrip}
                 trip = {trip}
-            
+                getActivityNames={getActivityNames}
+                setGetActivityNames={setGetActivityNames}
+                
             />
 
         </div>

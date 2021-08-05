@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-import {FaTrash} from "react-icons/fa"
-import { FaMapMarker, FaRegStickyNote} from "react-icons/fa"
+import {FaTrashAlt} from "react-icons/fa"
+import { FaMapMarker, FaClock} from "react-icons/fa"
 import { FaPlus } from "react-icons/fa"
 import { useState } from 'react'
 
@@ -23,13 +23,11 @@ const Activity = ({name, description, startTime, endTime, id, activities, setAct
     }
 
     return (
-        <div>
-            <p>Start: <span>{startTime}</span> End: <span>{endTime}</span></p>
+        <div className='activitiesContainer'>
             <h3><FaMapMarker></FaMapMarker>{name}</h3>
             <h6>{description}</h6>
-            {noteShowing ? (<span><FaRegStickyNote></FaRegStickyNote>this is a note<FaTrash></FaTrash></span>) : (null)}
-            <Button  onClick={handleAddNote}><FaPlus></FaPlus> Note</Button>
-            <Button onClick={handleDelete} id={id}><FaTrash></FaTrash></Button>
+            <p className='activitiesTime'><FaClock className='activitiesTimeClock'></FaClock>{startTime}-{endTime}</p>
+            <button className='trashCan' onClick={handleDelete} id={id}><FaTrashAlt></FaTrashAlt></button> 
         </div>
     )
 }

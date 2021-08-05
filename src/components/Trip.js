@@ -1,10 +1,11 @@
 import React from 'react'
 import DaysContainer from './Days/DaysContainer.js'
-import { FaChevronDown,FaCalendar } from "react-icons/fa"
+import { FaChevronDown,FaCalendar, FaList } from "react-icons/fa"
 import { useState } from 'react'
 
 const Trip = ({ trip }) => {
     const [isHidden, setIsHidden] = useState(false)
+    const [isListShowing, setIsListShowing] = useState(false)
 
     function daysOnTrip(){
         if(trip.start_date && trip.end_date){
@@ -42,27 +43,38 @@ const Trip = ({ trip }) => {
         setIsHidden(!isHidden)
     }
 
+    function showList(){
+        setIsListShowing(!isListShowing)
+    }
+
     return (
         <div>
-            <div>
-                <h1>{trip.location}</h1>
-                <h4><FaCalendar></FaCalendar>{tripLength(trip.start_date, trip.end_date)}</h4>
+            <div class='container-fluid'>
+                <img className='coverImg' src='https://www.state.gov/wp-content/uploads/2020/11/shutterstock_186964970-scaled.jpg'></img>
+                <div className='trip_container'>
+                    <h1 className='trip_location'>Trip to {trip.location}</h1>
+                    <h4 className='trip_dates'><FaCalendar className='tripCardCalendar'></FaCalendar>{tripLength(trip.start_date, trip.end_date)}</h4>
+                    <FaList className='listOption' onClick={showList}></FaList>
+                </div>
             </div>
+            {isListShowing ? (<div className='tripList'>
+                        <ul>
+                            <li>Hey</li>
+                            <li>Hey</li>
+                            <li>Hey</li>
+                            <li>Hey</li>
+                            <li>Hey</li>
+                        </ul>
+                    </div>) : (null)}
+
            
+                    
             <DaysContainer 
                 daysOnTrip = {daysOnTrip}
                 trip = {trip}
             
             />
-            <span>
-                <h1><FaChevronDown onClick={handleNotes}></FaChevronDown>Notes</h1>
-                {isHidden ? (
-                    <span>
-                        <h1>Hey!</h1>
-                    </span>) : (
-                    null)
-                }
-            </span>
+
         </div>
     )
 }

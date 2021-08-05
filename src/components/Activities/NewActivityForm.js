@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaPlus } from "react-icons/fa"
-import { Button } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 
 
 
@@ -61,9 +61,9 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
 
     return (
         <div>
-            <form onSubmit={handleNewActivity}>
-                <input placeholder='Activity' name='activity' value={newActivity.name} onChange={handleValue}/>
-                <input placeholder='description' name='description' value={newActivity.description} onChange={handleValue}/>
+            <form className='activityForm' onSubmit={handleNewActivity}>
+                <input id='activityForm' placeholder='Activity' name='name' value={newActivity.name} onChange={handleValue}/>
+                <input id='activityForm' placeholder='description' name='description' value={newActivity.description} onChange={handleValue}/>
                 <select id='start_time' name='start_time' value={newActivity.start_time} onChange={handleValue}>
                     <option value='12:00'>12:00 am</option>
                     <option value='12:30'>12:30 am</option>
@@ -167,7 +167,7 @@ const NewActivityForm = ({ onNewActivitySubmit}) => {
                     <option value='11:30'>11:30 pm</option>
                 </select>
                 
-                <Button type="submit"><FaPlus></FaPlus>ACTIVITY</Button>
+                <button className='addActivityBtn' type="submit"><FaPlus></FaPlus>ACTIVITY</button>
             </form>
             
         </div>

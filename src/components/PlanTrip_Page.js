@@ -56,13 +56,16 @@ const PlanTrip = () => {
     return (
         <>
             {isHidden ? (<Trip trip = { trip } />) : (
+                <>
+                <p className='planTrip'>Plan a new trip</p>
                 <TripForm 
                 handleOnChange = {handleOnChange}
                 handleSubmit = {handleSubmit}
                 formData = {formData}
                 trip = {trip}
-                
-            />)
+                />
+                </>
+            )
             }
         </>
     )

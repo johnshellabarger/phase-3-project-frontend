@@ -32,8 +32,8 @@ const ActivitiesContainer = () => {
  
     return (
         <div>
-            <NewActivityForm onNewActivitySubmit={onNewActivitySubmit}/>
             <ActivitiesList activities={activities} setActivities={setActivities}/>
+            <NewActivityForm onNewActivitySubmit={onNewActivitySubmit}/>
 
         </div>
     )

@@ -26,11 +26,9 @@ const DaysList = ({ daysOnTrip, trip}) => {
 
         const eachDay = array.map((item, i) => addDays(i))
         
-        
-        
+        console.log()
         useEffect(() => {
-            
-            
+        
             fetch(`http://localhost:9292/days`, {
                 method: 'POST',
                 headers:{
@@ -43,13 +41,7 @@ const DaysList = ({ daysOnTrip, trip}) => {
             })
             .then(response => response.json())
             .then(data => setTripDays(data))
-        
-         
-         
-            
     }, [trip])
-    
-    
     
 
     console.log(tripDays)
@@ -63,12 +55,7 @@ const DaysList = ({ daysOnTrip, trip}) => {
                         trip = {trip}
                         date = {day.date}
                     />
-                    
-            
-            
             )})}
-                
-                
         </div>
     )
 }

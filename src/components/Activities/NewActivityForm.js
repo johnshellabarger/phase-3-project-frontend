@@ -4,7 +4,7 @@ import { Button, Form } from 'semantic-ui-react'
 
 
 
-const NewActivityForm = ({ dayId, onNewActivitySubmit}) => {
+const NewActivityForm = ({ day_id, onNewActivitySubmit}) => {
     const [newActivity, setNewActivity] = useState({
         name: "",
         description: "",
@@ -45,7 +45,7 @@ const NewActivityForm = ({ dayId, onNewActivitySubmit}) => {
             description: newActivity.description,
             start_time: parseTime(newActivity.start_time),
             end_time: parseTime(newActivity.end_time),
-            day_id: dayId
+            day_id: day_id
         }
         
         fetch(`http://localhost:9292/activities`, {

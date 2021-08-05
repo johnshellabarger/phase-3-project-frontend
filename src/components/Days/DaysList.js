@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Day from './Day'
 
 
-const DaysList = ({ daysOnTrip, trip}) => {
+const DaysList = ({ daysOnTrip, trip }) => {
     
     const [tripDays, setTripDays] = useState([])
     const days = daysOnTrip() + 1
@@ -26,7 +26,6 @@ const DaysList = ({ daysOnTrip, trip}) => {
 
         const eachDay = array.map((item, i) => addDays(i))
         
-        console.log()
         useEffect(() => {
         
             fetch(`http://localhost:9292/days`, {
@@ -44,16 +43,13 @@ const DaysList = ({ daysOnTrip, trip}) => {
     }, [trip])
     
 
-    console.log(tripDays)
-
     return (
         <div>
             {tripDays.map((day, i) => {
                 return (
                     <Day 
                         key = {i}
-                        id = {day.id}
-
+                        day_id = {day.id}
                         date = {day.date}
                     />
             )})}

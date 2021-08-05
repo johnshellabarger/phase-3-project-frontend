@@ -44,14 +44,6 @@ const PlanTrip = () => {
 
     }
 
-         
-
-
-        
-
-        
-        
-      
 
     return (
         <>

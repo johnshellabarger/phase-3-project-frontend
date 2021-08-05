@@ -12,8 +12,7 @@ function Home(){
     }
     return(
         <div>
-            <h1>travelog &#128745;</h1>
-            <p>Plan Your New Trip</p>
+            <h1 className='logo'>travelog &#128745;</h1>
             <PlanTrip />
             <button onClick={handleOnClick}>View Your Trips</button>
             <TripList />

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { FaPlus } from "react-icons/fa"
-import { Button } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 
 
 
-const NewActivityForm = ({ dayId, onNewActivitySubmit, amPm, setAmPm}) => {
+const NewActivityForm = ({ dayId, onNewActivitySubmit}) => {
     const [newActivity, setNewActivity] = useState({
         name: "",
         description: "",
@@ -30,12 +30,12 @@ const NewActivityForm = ({ dayId, onNewActivitySubmit, amPm, setAmPm}) => {
         });
       }
 
-      function handleAmPm(event){
-        setAmPm({
-          ...amPm,
-          [event.target.name]: event.target.value
-        })
-      }
+      // function handleAmPm(event){
+      //   setAmPm({
+      //     ...amPm,
+      //     [event.target.name]: event.target.value
+      //   })
+      // }
 
     function handleNewActivity(event) {
         event.preventDefault();
@@ -69,9 +69,9 @@ const NewActivityForm = ({ dayId, onNewActivitySubmit, amPm, setAmPm}) => {
 
     return (
         <div>
-            <form onSubmit={handleNewActivity}>
-                <input placeholder='Activity' name='name' value={newActivity.name} onChange={handleValue}/>
-                <input placeholder='description' name='description' value={newActivity.description} onChange={handleValue}/>
+            <form className='activityForm' onSubmit={handleNewActivity}>
+                <input id='activityForm' placeholder='Activity' name='name' value={newActivity.name} onChange={handleValue}/>
+                <input id='activityForm' placeholder='description' name='description' value={newActivity.description} onChange={handleValue}/>
                 <select id='start_time' name='start_time' value={newActivity.start_time} onChange={handleValue}>
                     <option value='start_time' selected>Start Time</option>
                     <option value='1:00'>1:00</option>
@@ -123,10 +123,10 @@ const NewActivityForm = ({ dayId, onNewActivitySubmit, amPm, setAmPm}) => {
                     <option value='11:00'>11:00 pm</option>
                     <option value='11:30'>11:30 pm</option> */}
                 </select>
-                <select name='start_xm' value={amPm.start_xm} onChange={handleAmPm}>
+                {/* <select name='start_xm' value={amPm.start_xm} onChange={handleAmPm}>
                   <option value='am' selected>am</option>
                   <option value='pm'>pm</option>
-                </select>
+                </select> */}
                 <select id='end_time' name='end_time' value={newActivity.end_time} onChange={handleValue}>
                     <option value='end_time' selected>End Time</option>
                     <option value='1:00'>1:00</option>
@@ -178,12 +178,12 @@ const NewActivityForm = ({ dayId, onNewActivitySubmit, amPm, setAmPm}) => {
                     <option value='11:00'>11:00 pm</option>
                     <option value='11:30'>11:30 pm</option> */}
                 </select>
-                <select name='end_xm' value={amPm.end_xm} onChange={handleAmPm}>
+                {/* <select name='end_xm' value={amPm.end_xm} onChange={handleAmPm}>
                   <option value='am' selected>am</option>
                   <option value='pm'>pm</option>
-                </select>
+                </select> */}
                 
-                <Button type="submit"><FaPlus></FaPlus>ACTIVITY</Button>
+                <button className='addActivityBtn' type="submit"><FaPlus></FaPlus>ACTIVITY</button>
             </form>
             
         </div>

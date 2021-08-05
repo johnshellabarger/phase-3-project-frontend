@@ -4,7 +4,7 @@ import { Button, Form } from 'semantic-ui-react'
 
 
 
-const NewActivityForm = ({ day_id, onNewActivitySubmit}) => {
+const NewActivityForm = ({ getActivityNames, setGetActivityNames, day_id, onNewActivitySubmit}) => {
     const [newActivity, setNewActivity] = useState({
         name: "",
         description: "",
@@ -39,6 +39,7 @@ const NewActivityForm = ({ day_id, onNewActivitySubmit}) => {
 
     function handleNewActivity(event) {
         event.preventDefault();
+        setGetActivityNames(!getActivityNames)
         const createdActivity =
         {
             name: newActivity.name,

@@ -1,7 +1,7 @@
 import React from 'react';
 import DayList from './DaysList';
 
-const DayContainer = ({ daysOnTrip, trip}) => {
+const DayContainer = ({ daysOnTrip, trip }) => {
     
 
     return (

@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import DaysContainer from './Days/DaysContainer.js'
 import { FaChevronDown,FaCalendar, FaList } from "react-icons/fa"
 import { useState } from 'react'
+import ActivitySummary from './Activities/ActivitySummary.js'
 
 const Trip = ({ trip }) => {
     const [isHidden, setIsHidden] = useState(false)
     const [isListShowing, setIsListShowing] = useState(false)
+    const [thisTrip, setThisTrip] = useState([])
 
     function daysOnTrip(){
         if(trip.start_date && trip.end_date){
@@ -45,12 +47,24 @@ const Trip = ({ trip }) => {
         setIsHidden(!isHidden)
     }
 
+   
+
+
     function showList(){
         setIsListShowing(!isListShowing)
-        fetch(`https://localhost:9292/days`)
-        .then(response => response.json())
-        .then()
     }
+
+    useEffect(() => {
+       
+            fetch(`http://localhost:9292/trips/${trip.id}`)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data)
+                setThisTrip(...thisTrip, data)})
+    
+    }, [])
+
+    console.log(thisTrip.days)
 
     return (
         <div>
@@ -63,17 +77,15 @@ const Trip = ({ trip }) => {
                 </div>
             </div>
             {isListShowing ? (<div className='tripList'>
-                        <ul>
-                            <li>Hey</li>
-                            <li>Hey</li>
-                            <li>Hey</li>
-                            <li>Hey</li>
-                            <li>Hey</li>
-                        </ul>
+                        <div>
+                            <ActivitySummary 
+                                days = {thisTrip.days}
+                            />
+                        </div>
                     </div>) : (null)}
 
            
-                    
+        
             <DaysContainer 
                 daysOnTrip = {daysOnTrip}
                 trip = {trip}

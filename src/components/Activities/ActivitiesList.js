@@ -1,7 +1,7 @@
 import React from 'react'
 import Activity from './Activity'
 
-const ActivitiesList = ({activities, setActivities}) => {
+const ActivitiesList = ({ activities, setActivities}) => {
     return (
         <div>
             {activities.map (activity => {

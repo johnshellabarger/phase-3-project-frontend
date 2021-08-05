@@ -52,7 +52,8 @@ const DaysList = ({ daysOnTrip, trip}) => {
                 return (
                     <Day 
                         key = {i}
-                        trip = {trip}
+                        id = {day.id}
+
                         date = {day.date}
                     />
             )})}

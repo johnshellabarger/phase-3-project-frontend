@@ -3,8 +3,8 @@ import ActivitiesContainer from '../Activities/ActivitiesContainer'
 import { FaChevronDown, FaCalendarWeek,FaChevronRight,FaGripHorizontal } from "react-icons/fa"
 import { useState } from 'react'
 
-const Day = ({ date}) => {
-    console.log(date)
+const Day = ({ id, date}) => {
+    const [activities, setActivities] = useState([])
     const [isHidden, setIsHidden] = useState(false)
     const [isOptionsShowing, setIsOptionsShowing] = useState(false)
     const day = date.toString().split("-")[2].split('T')[0]
@@ -30,6 +30,29 @@ const Day = ({ date}) => {
         setIsOptionsShowing(!isOptionsShowing)
     }
 
+    function onNewActivitySubmit(data){
+            if(data.start_time && data.end_time){
+                // const start = data.start_time.split('T')[1]
+                // const end = data.end_time.split('T')[1]
+                const startHours = new Date(data.start_time).getHours()
+                const startMinutes = ('0' + new Date(data.start_time).getMinutes()).slice(-2)
+                const endHours = new Date(data.end_time).getHours()
+                const endMinutes = ('0' + new Date(data.end_time).getMinutes()).slice(-2)
+                const start = `${startHours}:${startMinutes}`
+                const end = `${endHours}:${endMinutes}`
+                const newActivity = {
+                    id: data.id,
+                    name: data.name,
+                    description: data.description,
+                    start_time: start,
+                    end_time: end,
+                    day_id: data.day_id
+                }
+                console.log(newActivity)
+            const newList = [...activities, newActivity]
+            setActivities(newList)    
+        }}
+
     return (
         <div>
             <h1>
@@ -44,7 +67,7 @@ const Day = ({ date}) => {
                         <h5 id='dropDownOptions'>Change color</h5>
                     </div>) : (null)}
             </h1>
-                {isHidden ? (null) : (<ActivitiesContainer />) }
+                {isHidden ? (null) : (<ActivitiesContainer day_id={id} onNewActivitySubmit={onNewActivitySubmit}/>) }
             <div className='insertSectionSpace'>
             </div>
         </div>

@@ -8,6 +8,8 @@ const Trip = ({ trip }) => {
     const [isHidden, setIsHidden] = useState(false)
     const [isListShowing, setIsListShowing] = useState(false)
     const [thisTrip, setThisTrip] = useState([])
+    const [getActivityNames, setGetActivityNames] = useState(false)
+    const [dayActivities, setDayActivities] = useState({})
 
     function daysOnTrip(){
         if(trip.start_date && trip.end_date){
@@ -41,6 +43,8 @@ const Trip = ({ trip }) => {
         }
     }
 
+    
+
     function handleNotes(){
         setIsHidden(!isHidden)
     }
@@ -62,6 +66,8 @@ const Trip = ({ trip }) => {
     
     }, [])
 
+    console.log(thisTrip.days)
+
     return (
         <div>
             <div class='container-fluid'>
@@ -73,11 +79,15 @@ const Trip = ({ trip }) => {
                 </div>
             </div>
             {isListShowing ? (<div className='tripList'>
-                        <ul>
+                        <div>
                             <ActivitySummary 
-                                days ={thisTrip.days}
+                                days = {thisTrip.days}
+                                isListShowing={isListShowing}
+                                getActivityNames={getActivityNames}
+                                dayActivities={dayActivities} 
+                                setDayActivities={setDayActivities}
                             />
-                        </ul>
+                        </div>
                     </div>) : (null)}
 
            
@@ -85,7 +95,9 @@ const Trip = ({ trip }) => {
             <DaysContainer 
                 daysOnTrip = {daysOnTrip}
                 trip = {trip}
-            
+                getActivityNames={getActivityNames}
+                setGetActivityNames={setGetActivityNames}
+                
             />
 
         </div>

@@ -1,37 +1,20 @@
 import React from 'react'
-import { useState } from 'react'
+import ActivitiesNames from './ActivitiesNames'
 
-function ActivitySummary({ days }) {
-    const [yourActivities, setYourActivities] = useState([])
-    
-    
-    // const activities = fetch(`http://localhost:9292/activities/`, {
-    //         method: 'GET',
-    //         headers:{
-    //             "Content-Type" : "application/json"
-    //         }
-    //     }).then(data => data.json())
-    //     .then(data => setYourActivities(data))
-        
-        console.log(yourActivities)
-
-
-    const tripDays = days.map(activity => {
-        return (
-            <>
-            <li>{activity.date}</li>
-            </>
-        )
-    })
-
-
-    
+function ActivitySummary({ days, isListShowing, getActivityNames, dayActivities, setDayActivities}) {
 
 
     return (
-        <div>   
-            {tripDays}
-        </div>
+        <ul>   
+            {days.map(day => {
+                return (
+                    <>
+                    <li>{day.date}</li>
+                <ActivitiesNames day={day} getActivityNames={getActivityNames} isListShowing={isListShowing} dayActivities={dayActivities} setDayActivities={setDayActivities}/>
+                    </>
+                )
+            })}
+        </ul>
     )
 }
 

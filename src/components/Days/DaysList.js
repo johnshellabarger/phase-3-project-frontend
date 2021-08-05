@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Day from './Day'
 
 
-const DaysList = ({ daysOnTrip, trip }) => {
+const DaysList = ({ daysOnTrip, trip, getActivityNames, setGetActivityNames }) => {
     
     const [tripDays, setTripDays] = useState([])
     const days = daysOnTrip() + 1
@@ -51,6 +51,8 @@ const DaysList = ({ daysOnTrip, trip }) => {
                         key = {i}
                         day_id = {day.id}
                         date = {day.date}
+                        getActivityNames={getActivityNames}
+                        setGetActivityNames={setGetActivityNames}
                     />
             )})}
         </div>

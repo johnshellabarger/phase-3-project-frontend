@@ -4,13 +4,18 @@ import Notepad from '../Notepad';
 import { FaChevronDown, FaCalendarWeek,FaChevronRight,FaGripHorizontal } from "react-icons/fa"
 import { useState } from 'react'
 
-const DayContainer = ({ daysOnTrip, trip }) => {
+
+const DayContainer = ({ daysOnTrip, trip, getActivityNames, setGetActivityNames }) => {
+    
+
+
     const [isNotesOpen, setIsNotesOpen] = useState(false)
 
 
     function handleToggle(){
         setIsNotesOpen(!isNotesOpen)
     }
+
 
     return (
         <>
@@ -24,8 +29,11 @@ const DayContainer = ({ daysOnTrip, trip }) => {
                     <DayList 
                         daysOnTrip = {daysOnTrip}
                         trip = {trip}
+                        getActivityNames={getActivityNames}
+                        setGetActivityNames={setGetActivityNames}
                     />
                 </div>
+
             </div>
         </>
     )

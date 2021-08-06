@@ -32,31 +32,36 @@ const NewActivityForm = ({ getActivityNames, setGetActivityNames, day_id, onNewA
 
     function handleNewActivity(event) {
         event.preventDefault();
-        setGetActivityNames(!getActivityNames)
-        const createdActivity =
-        {
-            name: newActivity.name,
-            description: newActivity.description,
-            start_time: parseTime(newActivity.start_time),
-            end_time: parseTime(newActivity.end_time),
-            day_id: day_id
-        }
-        
-        fetch(`http://localhost:9292/activities`, {
-          method : 'POST',
-          headers : {
-            "Content-type" : "application/json"
-          },
-          body : JSON.stringify(createdActivity)
-        })
-        .then(response => response.json())
-        .then(data => {onNewActivitySubmit(data)})
-        setNewActivity({
-            name: "",
-            description: "",
-            start_time: "start_time",
-            end_time: "end_time"
-        })
+        if(newActivity.start_time === 'start_time' || newActivity.end_time === 'end_time'){
+          alert('Please select a start time and end time')
+
+        } else {
+          setGetActivityNames(!getActivityNames)
+          const createdActivity =
+          {
+              name: newActivity.name,
+              description: newActivity.description,
+              start_time: parseTime(newActivity.start_time),
+              end_time: parseTime(newActivity.end_time),
+              day_id: day_id
+          }
+          
+          fetch(`http://localhost:9292/activities`, {
+            method : 'POST',
+            headers : {
+              "Content-type" : "application/json"
+            },
+            body : JSON.stringify(createdActivity)
+          })
+          .then(response => response.json())
+          .then(data => {onNewActivitySubmit(data)})
+          setNewActivity({
+              name: "",
+              description: "",
+              start_time: "start_time",
+              end_time: "end_time"
+          })
+        } 
       }
 
     return (

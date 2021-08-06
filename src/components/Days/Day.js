@@ -6,6 +6,7 @@ import Notepad from '../Notepad'
 
 const Day = ({ day_id, date, getActivityNames, setGetActivityNames }) => {
     const [activities, setActivities] = useState([])
+    const [hasActivities, setHasActivities] = useState(false)
     const [isHidden, setIsHidden] = useState(false)
     const [isOptionsShowing, setIsOptionsShowing] = useState(false)
     const day = date.toString().split("-")[2].split('T')[0]
@@ -54,14 +55,20 @@ const Day = ({ day_id, date, getActivityNames, setGetActivityNames }) => {
             setActivities(newList)    
         }}
 
+
+
+        // {hasActivities ? (<span><h4>{activities.length} activities </h4></span>) : (<span><h4>No activities</h4></span>)}
+
+
     return (
         <div>
             <h1>
                 {isHidden ? (<FaChevronRight className='chevronDown' onClick={toggleDay}></FaChevronRight>) : (<FaChevronDown className='chevronDown' onClick={toggleDay}></FaChevronDown>)}
                 <span className='daysOnTrip'>{`${dayOfWeek} ${month}/${day}`}</span>
-                
                 <FaCalendarWeek className='dayCalendar'></FaCalendarWeek>
-                {isHidden ? (<FaGripHorizontal onClick={handleClick}className='options'></FaGripHorizontal>) : (null)}
+                {isHidden ? (activities.length === 0 ? (<h4 id="activitiesSubheading">No activities</h4>) : (activities.length === 1 ?
+                     (<h4 id="activitiesSubheading">{activities.length} activity </h4>) : (<h4 id="activitiesSubheading">{activities.length} activities </h4>))) : (null)}
+                {/* {isHidden ? (<FaGripHorizontal onClick={handleClick}className='options'></FaGripHorizontal>) : (null)} */}
                 {isOptionsShowing ? (
                     <div id='dropDown'>
                         <div id='myDropDown'></div>

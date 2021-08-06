@@ -25,7 +25,7 @@ const DayContainer = ({ daysOnTrip, trip, getActivityNames, setGetActivityNames 
                 {!isNotesOpen ? (<><h1 className='daysOnTrip'><FaChevronRight onClick={handleToggle} className='chevronDown'></FaChevronRight>Notes</h1>
                 </>) : (<><h1 className='daysOnTrip'><FaChevronDown onClick={handleToggle} className='chevronDown'></FaChevronDown>Notes</h1>
                 <Notepad trip={trip} text={text} setText={setText}/></>)}
-                    
+                <div className='insertSectionSpace'></div>
                 <div className='day_container'>
                     <DayList 
                         daysOnTrip = {daysOnTrip}

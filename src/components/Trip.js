@@ -43,14 +43,10 @@ const Trip = ({ trip }) => {
         }
     }
 
-    
 
     function handleNotes(){
         setIsHidden(!isHidden)
     }
-
-   
-
 
     function showList(){
         setIsListShowing(!isListShowing)
@@ -70,14 +66,15 @@ const Trip = ({ trip }) => {
 
     return (
         <div>
-            <div class='container-fluid'>
+        <div class='container-fluid'>
                 <img className='coverImg' src='https://www.state.gov/wp-content/uploads/2020/11/shutterstock_186964970-scaled.jpg'></img>
                 <div className='trip_container'>
-                    <h1 className='trip_location'>Trip to {trip.location}</h1>
-                    <h4 className='trip_dates'><FaCalendar className='tripCardCalendar'></FaCalendar>{tripLength(trip.start_date, trip.end_date)}</h4>
-                    <FaList className='listOption' onClick={showList}></FaList>
-                </div>
+                <h1 className='trip_location'>Trip to {trip.location}</h1>
+                <h4 className='trip_dates'><FaCalendar className='tripCardCalendar'></FaCalendar>{tripLength(trip.start_date, trip.end_date)}</h4>
+                <FaList className='listOption' onClick={showList}></FaList>
             </div>
+        </div>
+                <div className='insertSectionSpaceOrange'></div>
             {isListShowing ? (<div className='tripList'>
                         <div>
                             <ActivitySummary 

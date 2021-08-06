@@ -1,5 +1,5 @@
 import React from 'react'
-import Trip from './Trip'
+import EachTrip from './EachTrip'
 
 const TripList = (trips) => {
 
@@ -8,7 +8,7 @@ const TripList = (trips) => {
             return (
                 trips.map(trip => {
                     return(
-                    <Trip />
+                    <EachTrip trips={trip} />
                     )})
             )
         }else {

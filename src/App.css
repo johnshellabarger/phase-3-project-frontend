@@ -396,6 +396,11 @@ textarea {
 
 }
 
+.summaryActivityName{
+    font-size: 1.4rem;
+    font-weight: lighter;
+    list-style-position: inside;
+
 .book{
     height: 10px;
     margin-bottom:10px;
@@ -410,4 +415,5 @@ textarea {
     margin-top:-75px;
     padding-top:40px;
     border-top: 20px solid rgb(252, 101, 1);
+
 }

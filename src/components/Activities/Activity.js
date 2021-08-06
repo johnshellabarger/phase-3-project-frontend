@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 
 
-const Activity = ({name, description, startTime, endTime, id, activities, setActivities}) => {
+const Activity = ({name, description, startTime, endTime, id, activities, setActivities, getActivityNames, setGetActivityNames}) => {
     const [noteShowing, setNoteShowing] = useState(false)
                 // const startHours = new Date(startTime).getHours()
                 // const startMinutes = ('0' + new Date(startTime).getMinutes()).slice(-2)
@@ -57,6 +57,7 @@ const Activity = ({name, description, startTime, endTime, id, activities, setAct
     
                 
     function handleDelete(){
+        setGetActivityNames(!getActivityNames)
         fetch(`http://localhost:9292/activities/${id}`, {
             method: 'DELETE'
         })

@@ -6,7 +6,8 @@ const ActivitiesContainer = ({day_id, activities, setActivities, getActivityName
 
     return (
         <div>
-            <ActivitiesList activities={activities} setActivities={setActivities}/>
+            <ActivitiesList activities={activities} setActivities={setActivities} getActivityNames={getActivityNames} 
+                setGetActivityNames={setGetActivityNames}/>
             <NewActivityForm 
                 getActivityNames={getActivityNames} 
                 setGetActivityNames={setGetActivityNames} 

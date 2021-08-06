@@ -209,6 +209,8 @@ p{
     display: flex;
     justify-content: center;
     font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-top:50px;
 }
 
 .trashCan{
@@ -250,7 +252,10 @@ p{
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');.daysOnTrip{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+
+
+.daysOnTrip{
     font-family: 'Montserrat', sans-serif;
 }
    
@@ -280,6 +285,11 @@ p{
     float: right;
     margin-right:10px;
     margin-top:20px;
+    cursor: pointer;
+}
+
+.listOption:hover{
+    color: rgb(136, 136, 136);
 }
 
 .tripList{
@@ -291,6 +301,7 @@ p{
     width:80%;
     border-radius: 10px;
     padding:20px;
+    margin-top: 50px;
 }
 
 .tripCardCalendar{
@@ -350,6 +361,7 @@ textarea {
     overflow-x: hidden;
     overflow-y: auto;
     resize: none;
+    outline: none
 }
 
 .activitiesName{
@@ -388,4 +400,20 @@ textarea {
     font-size: 1.4rem;
     font-weight: lighter;
     list-style-position: inside;
+
+.book{
+    height: 10px;
+    margin-bottom:10px;
+}
+
+#activitiesSubheading{
+    margin-left: 30px;
+}
+
+.insertSectionSpaceOrange{
+    height:50px;
+    margin-top:-75px;
+    padding-top:40px;
+    border-top: 20px solid rgb(252, 101, 1);
+
 }

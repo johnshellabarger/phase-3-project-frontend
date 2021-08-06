@@ -1,8 +1,20 @@
 import React, {useState, useEffect} from 'react'
 
-const ActivitiesNames = ({day, getActivityNames}) => {
+const ActivitiesNames = ({day, getActivityNames, date }) => {
     const [dayActivities, setDayActivities] = useState([])
     
+    const weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+    
+    const d = new Date(date)
+    const dayOfWeek = weekday[d.getDay()]
+
         useEffect(() => {
             fetch(`http://localhost:9292/days/${day.id}`)
             .then(response => response.json())
@@ -10,6 +22,7 @@ const ActivitiesNames = ({day, getActivityNames}) => {
         }, [getActivityNames])
         
             function renderActivities(){
+                
                 if(dayActivities.length > 0){
                     return (
                         dayActivities.map(activity => {
@@ -23,9 +36,13 @@ const ActivitiesNames = ({day, getActivityNames}) => {
             }
         
     return (
-        <ul>
-            {renderActivities()}
-        </ul>
+
+        <>
+            <li className='activitySummaryDate'>{`${dayOfWeek} ${day.date.split('T')[0].split('-')[1]}-${day.date.split('T')[0].split('-')[2]}`}</li>
+            <ul>
+                {renderActivities()}
+            </ul>
+        </>
     )
 }
 

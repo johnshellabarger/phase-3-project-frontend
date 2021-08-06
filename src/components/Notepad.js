@@ -35,8 +35,7 @@ const Notepad = ({ trip, text, setText }) => {
     function renderEditView(){
         return (
             <div className='notesDiv'>
-                <textarea autoFocus={true} className='noteInput' onChange={handleChange}ref={inputRef} type='text'  cols="40" rows="5" ></textarea>
-                <span><FaTrash onClick={changeEditMode}></FaTrash></span>
+                <textarea autoFocus={true} className='noteInput' onChange={handleChange}ref={inputRef} type='text' defaultValue={text} placeHolder={text} cols="40" rows="5" ></textarea>
                 <span><FaSave onClick={updateValue}></FaSave></span>
             </div>
         )

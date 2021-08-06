@@ -19,6 +19,7 @@ const Notepad = () => {
     const updateValue = (e) => {
             setIsInEditMode(false)
             setText(inputRef.current.value)
+            
     }
 
     function renderEditView(){

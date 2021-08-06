@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
-import DaysContainer from './Days/DaysContainer.js'
+import React, {useState, useEffect} from 'react'
+import ActivitySummary from '../Activities/ActivitySummary.js'
+import DaysContainer from '../Days/DaysContainer.js'
 import { FaChevronDown,FaCalendar, FaList } from "react-icons/fa"
-import { useState } from 'react'
-import ActivitySummary from './Activities/ActivitySummary.js'
 
-const Trip = ({ trip }) => {
+
+const EachTrip = (trip) => {
     const [isHidden, setIsHidden] = useState(false)
     const [isListShowing, setIsListShowing] = useState(false)
     const [thisTrip, setThisTrip] = useState([])
@@ -43,10 +43,14 @@ const Trip = ({ trip }) => {
         }
     }
 
+    
 
     function handleNotes(){
         setIsHidden(!isHidden)
     }
+
+   
+
 
     function showList(){
         setIsListShowing(!isListShowing)
@@ -62,19 +66,18 @@ const Trip = ({ trip }) => {
     
     }, [])
 
-    // console.log(thisTrip.days)
+    console.log(thisTrip.days)
 
     return (
         <div>
-        <div class='container-fluid'>
+            <div class='container-fluid'>
                 <img className='coverImg' src='https://www.state.gov/wp-content/uploads/2020/11/shutterstock_186964970-scaled.jpg'></img>
                 <div className='trip_container'>
-                <h1 className='trip_location'>Trip to {trip.location}</h1>
-                <h4 className='trip_dates'><FaCalendar className='tripCardCalendar'></FaCalendar>{tripLength(trip.start_date, trip.end_date)}</h4>
-                <FaList className='listOption' onClick={showList}></FaList>
+                    <h1 className='trip_location'>Trip to {trip.location}</h1>
+                    <h4 className='trip_dates'><FaCalendar className='tripCardCalendar'></FaCalendar>{tripLength(trip.start_date, trip.end_date)}</h4>
+                    <FaList className='listOption' onClick={showList}></FaList>
+                </div>
             </div>
-        </div>
-                <div className='insertSectionSpaceOrange'></div>
             {isListShowing ? (<div className='tripList'>
                         <div>
                             <ActivitySummary 
@@ -101,4 +104,4 @@ const Trip = ({ trip }) => {
     )
 }
 
-export default Trip
+export default EachTrip

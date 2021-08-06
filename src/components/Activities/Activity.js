@@ -9,7 +9,53 @@ import { useState } from 'react'
 
 const Activity = ({name, description, startTime, endTime, id, activities, setActivities}) => {
     const [noteShowing, setNoteShowing] = useState(false)
+                // const startHours = new Date(startTime).getHours()
+                // const startMinutes = ('0' + new Date(startTime).getMinutes()).slice(-2)
+                // const endHours = new Date(endTime).getHours()
+                // const endMinutes = ('0' + new Date(endTime).getMinutes()).slice(-2)
+                // const start = `${startHours}:${startMinutes}`
+                // const end = `${endHours}:${endMinutes}`
+                
+
+            const startingTime = (startTime) => {
+                const amPmHours = new Date(startTime).getHours()
+                let startHours = new Date(startTime).getHours()
+                let startMinutes = ('0' + new Date(startTime).getMinutes()).slice(-2)
+                if (startHours > 0 && startHours <= 12) {
+                  startHours = startHours;
+                } else if (startHours > 12) {
+                    startHours = startHours - 12;
+                } else if (startHours === 0) {
+                  startHours = 12;
+                }
+
+                
+                const amPm = (amPmHours >= 12) ? " P.M." : " A.M.";  // get AM/PM
+                const firstTime = `${startHours}:${startMinutes} ${amPm}`
+                return firstTime
+            }
+                
+            const endingTime = (endTime) => {
+                const amPmHours = new Date(endTime).getHours()
+                let endHours = new Date(endTime).getHours()
+                let endMinutes = ('0' + new Date(endTime).getMinutes()).slice(-2)
+
+                if (endHours > 0 && endHours <= 12) {
+                   endHours = endHours;
+                } else if (endHours > 12) {
+                    endHours = endHours - 12;
+                } else if (endHours == 0) {
+                  endHours = "12";
+                }
+                 
+                
+                const amPm = (amPmHours >= 12) ? " P.M." : " A.M.";  // get AM/PM
+                const lastTime = `${endHours}:${endMinutes} ${amPm}`
+                return lastTime
+            }
+            
     
+                
     function handleDelete(){
         fetch(`http://localhost:9292/activities/${id}`, {
             method: 'DELETE'
@@ -27,7 +73,7 @@ const Activity = ({name, description, startTime, endTime, id, activities, setAct
             <h3 className='activitiesName'><FaMapMarker className='pin'></FaMapMarker>{name}</h3>
             <h3 className='activitiesDescription'>{`- ${description}`}</h3>
             <div className='LineOnActivities'></div>
-            <p className='activitiesTime'><FaClock className='activitiesTimeClock'></FaClock>{startTime}-{endTime}</p>
+            <p className='activitiesTime'><FaClock className='activitiesTimeClock'></FaClock>{startingTime(startTime)}-{endingTime(endTime)}</p>
             <button className='trashCan' onClick={handleDelete} id={id}><FaTrashAlt></FaTrashAlt></button> 
         </div>
     )

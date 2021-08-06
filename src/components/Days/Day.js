@@ -46,12 +46,12 @@ const Day = ({ day_id, date, getActivityNames, setGetActivityNames }) => {
                     id: data.id,
                     name: data.name,
                     description: data.description,
-                    start_time: start,
-                    end_time: end,
+                    start_time: data.start_time,
+                    end_time: data.end_time,
                     day_id: data.day_id
                 }
-                console.log(newActivity)
             const newList = [...activities, newActivity]
+            console.log(newList)
             setActivities(newList)    
         }}
 
@@ -76,7 +76,13 @@ const Day = ({ day_id, date, getActivityNames, setGetActivityNames }) => {
                         <h5 id='dropDownOptions'>Change color</h5>
                     </div>) : (null)}
             </h1>
-                {isHidden ? (null) : (<ActivitiesContainer activities={activities} day_id={day_id} setActivities={setActivities} getActivityNames={getActivityNames} setGetActivityNames={setGetActivityNames} onNewActivitySubmit={onNewActivitySubmit}/>) }
+                {isHidden ? (null) : (<ActivitiesContainer 
+                                        activities={activities} 
+                                        day_id={day_id} 
+                                        setActivities={setActivities} 
+                                        getActivityNames={getActivityNames} 
+                                        setGetActivityNames={setGetActivityNames} 
+                                        onNewActivitySubmit={onNewActivitySubmit}/>) }
             <div className='insertSectionSpace'>
             </div>
         </div>

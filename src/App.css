@@ -383,3 +383,9 @@ textarea {
     list-style-position: inside;
 
 }
+
+.summaryActivityName{
+    font-size: 1.4rem;
+    font-weight: lighter;
+    list-style-position: inside;
+}

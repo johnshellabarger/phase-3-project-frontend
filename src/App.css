@@ -130,7 +130,6 @@ p{
     width: 250px;
     height: 35px;
     padding: 5px;
-    margin-left:10px;
     margin-right:10px;
     border: none;
     background: rgb(235, 235, 235);
@@ -184,19 +183,26 @@ p{
 }
 
 .activitiesContainer{
-    display: flex;
+    display: block;
     justify-content: space-evenly;
     align-items: baseline;
+    background-color:rgb(235, 235, 235);
+    border-radius: 10px;
+    padding:10px;
+    margin-bottom:20px;
 }
 
 .activitiesTime{
     color:black;
-    font-size:1rem;
+    font-size:1.3rem;
+    margin-left: 500px;
+    margin-top: -30px;
 }
 
 .activitiesTimeClock{
     height: 8px;
     margin-bottom:3px;
+    color: #fd8f11;
 }
 
 .itineraryHeader{
@@ -210,6 +216,10 @@ p{
   color: black;
   -webkit-text-fill-color: black;
   cursor: pointer;
+  float:right;
+  margin-right:10px;
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 
 .trashCan:hover{
@@ -217,6 +227,9 @@ p{
      color: rgb(136, 136, 136);
      -webkit-text-fill-color: black;
      cursor: pointer;
+    float:right;
+    margin-right:10px;
+    margin-top: -10px;
    }
 
 
@@ -302,6 +315,7 @@ p{
     background-color: rgb(241, 241, 241);
     border-radius: 10px;;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .noteInput{
@@ -311,7 +325,7 @@ p{
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    width:80%;
+    width:100%;
 }
 
 .noteInput:after{
@@ -330,10 +344,34 @@ p{
 }
 
 textarea {
-
+    width: 100%;
     border: 1px solid #ccc;
     max-height: 150px;
     overflow-x: hidden;
     overflow-y: auto;
     resize: none;
+}
+
+.activitiesName{
+    font-size: 2rem;
+    margin-left: 80px;
+    margin-top: 20px;
+    padding-top: 5px;
+}
+
+.activitiesDescription{
+    margin-top:0px;
+    font-size:1rem;
+    margin-left: 115px;
+    padding:0px;
+}
+
+
+.LineOnActivities{
+    border-top: 1px solid rgb(201, 201, 201);
+}
+
+.pin{
+    color:#fd8f11;
+    margin-right:5px
 }

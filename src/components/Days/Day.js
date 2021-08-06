@@ -59,6 +59,7 @@ const Day = ({ day_id, date, getActivityNames, setGetActivityNames }) => {
             <h1>
                 {isHidden ? (<FaChevronRight className='chevronDown' onClick={toggleDay}></FaChevronRight>) : (<FaChevronDown className='chevronDown' onClick={toggleDay}></FaChevronDown>)}
                 <span className='daysOnTrip'>{`${dayOfWeek} ${month}/${day}`}</span>
+                
                 <FaCalendarWeek className='dayCalendar'></FaCalendarWeek>
                 {isHidden ? (<FaGripHorizontal onClick={handleClick}className='options'></FaGripHorizontal>) : (null)}
                 {isOptionsShowing ? (

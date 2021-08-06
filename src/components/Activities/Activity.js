@@ -24,8 +24,9 @@ const Activity = ({name, description, startTime, endTime, id, activities, setAct
 
     return (
         <div className='activitiesContainer'>
-            <h3><FaMapMarker></FaMapMarker>{name}</h3>
-            <h6>{description}</h6>
+            <h3 className='activitiesName'><FaMapMarker className='pin'></FaMapMarker>{name}</h3>
+            <h3 className='activitiesDescription'>{`- ${description}`}</h3>
+            <div className='LineOnActivities'></div>
             <p className='activitiesTime'><FaClock className='activitiesTimeClock'></FaClock>{startTime}-{endTime}</p>
             <button className='trashCan' onClick={handleDelete} id={id}><FaTrashAlt></FaTrashAlt></button> 
         </div>

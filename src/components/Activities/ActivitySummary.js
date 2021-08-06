@@ -10,7 +10,13 @@ function ActivitySummary({ days, isListShowing, getActivityNames, dayActivities,
                 return (
                     <>
                     <li>{day.date}</li>
-                <ActivitiesNames day={day} getActivityNames={getActivityNames} isListShowing={isListShowing} dayActivities={dayActivities} setDayActivities={setDayActivities}/>
+                    <ActivitiesNames 
+                        day={day} 
+                        getActivityNames={getActivityNames} 
+                        isListShowing={isListShowing} 
+                        dayActivities={dayActivities} 
+                        setDayActivities={setDayActivities}
+                    />
                     </>
                 )
             })}

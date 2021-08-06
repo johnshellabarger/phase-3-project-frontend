@@ -18,11 +18,10 @@ const ActivitiesNames = ({day, getActivityNames}) => {
                             )})
                     )
                 }else {
-                  return( <div>No Activities</div>)
+                    return( <div>No Activities</div>)
                 }
             }
         
-
     return (
         <ul>
             {renderActivities()}

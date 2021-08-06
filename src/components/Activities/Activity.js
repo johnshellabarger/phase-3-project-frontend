@@ -9,33 +9,51 @@ import { useState } from 'react'
 
 const Activity = ({name, description, startTime, endTime, id, activities, setActivities}) => {
     const [noteShowing, setNoteShowing] = useState(false)
-    const startHours = new Date(startTime).getHours()
-                const startMinutes = ('0' + new Date(startTime).getMinutes()).slice(-2)
-                const endHours = new Date(endTime).getHours()
-                const endMinutes = ('0' + new Date(endTime).getMinutes()).slice(-2)
-                const start = `${startHours}:${startMinutes}`
-                const end = `${endHours}:${endMinutes}`
-                timeLast = end.split(':'); // convert to array
-                console.log(timeLast)
+                // const startHours = new Date(startTime).getHours()
+                // const startMinutes = ('0' + new Date(startTime).getMinutes()).slice(-2)
+                // const endHours = new Date(endTime).getHours()
+                // const endMinutes = ('0' + new Date(endTime).getMinutes()).slice(-2)
+                // const start = `${startHours}:${startMinutes}`
+                // const end = `${endHours}:${endMinutes}`
+                
 
-                function convertStartTime(time){
-                var hours = Number(time[0]);
-                var minutes = Number(time[1]);
+            const startingTime = (startTime) => {
+                const amPmHours = new Date(startTime).getHours()
+                let startHours = new Date(startTime).getHours()
+                let startMinutes = ('0' + new Date(startTime).getMinutes()).slice(-2)
+                if (startHours > 0 && startHours <= 12) {
+                  startHours = startHours;
+                } else if (startHours > 12) {
+                    startHours = startHours - 12;
+                } else if (startHours === 0) {
+                  startHours = 12;
+                }
+
                 
-                // calculate
-                var timeValue;
+                const amPm = (amPmHours >= 12) ? " P.M." : " A.M.";  // get AM/PM
+                const firstTime = `${startHours}:${startMinutes} ${amPm}`
+                return firstTime
+            }
                 
-                if (hours > 0 && hours <= 12) {
-                  timeValue= "" + hours;
-                } else if (hours > 12) {
-                  timeValue= "" + (hours - 12);
-                } else if (hours == 0) {
-                  timeValue= "12";
+            const endingTime = (endTime) => {
+                const amPmHours = new Date(endTime).getHours()
+                let endHours = new Date(endTime).getHours()
+                let endMinutes = ('0' + new Date(endTime).getMinutes()).slice(-2)
+
+                if (endHours > 0 && endHours <= 12) {
+                   endHours = endHours;
+                } else if (endHours > 12) {
+                    endHours = endHours - 12;
+                } else if (endHours == 0) {
+                  endHours = "12";
                 }
                  
-                timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes;  // get minutes
-                timeValue += (hours >= 12) ? " P.M." : " A.M.";  // get AM/PM
+                
+                const amPm = (amPmHours >= 12) ? " P.M." : " A.M.";  // get AM/PM
+                const lastTime = `${endHours}:${endMinutes} ${amPm}`
+                return lastTime
             }
+            
     
                 
     function handleDelete(){
@@ -55,7 +73,7 @@ const Activity = ({name, description, startTime, endTime, id, activities, setAct
             <h3 className='activitiesName'><FaMapMarker className='pin'></FaMapMarker>{name}</h3>
             <h3 className='activitiesDescription'>{`- ${description}`}</h3>
             <div className='LineOnActivities'></div>
-            <p className='activitiesTime'><FaClock className='activitiesTimeClock'></FaClock>{start}-{end}</p>
+            <p className='activitiesTime'><FaClock className='activitiesTimeClock'></FaClock>{startingTime(startTime)}-{endingTime(endTime)}</p>
             <button className='trashCan' onClick={handleDelete} id={id}><FaTrashAlt></FaTrashAlt></button> 
         </div>
     )

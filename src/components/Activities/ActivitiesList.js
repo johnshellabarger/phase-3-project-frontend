@@ -3,16 +3,10 @@ import Activity from './Activity'
 
 const ActivitiesList = ({ activities, setActivities}) => {
     // const sortedActivities = activities.sort((activity1, activity2) => activity1.start_time.split(':').slice(0,2) > activity2.start_time.split(':').slice(0,2) ? 1 : activity2.start_time.split(':').slice(0,2) > activity1.start_time.split(':').slice(0,2) ? -1 : 0)
-    const sortedActivities = activities.sort((activity1, activity2) => new Date(activity1.start_time) - new Date(activity2.start_time))
-    console.log(sortedActivities)
-
-    // function convert(input) {
-    //     return moment(input, 'HH:mm:ss').format('h:mm:ss A');
-    // }
+    // const sortedActivities = 
+    activities.sort((activity1, activity2) => new Date(activity1.start_time) - new Date(activity2.start_time))
     
-    // console.log(convert('20:00:00'));
-    // console.log(convert('08:00:00'));
-    // console.log(convert('16:30:00'));
+
 
     return (
         <div>

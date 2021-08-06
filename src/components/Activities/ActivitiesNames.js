@@ -27,7 +27,7 @@ const ActivitiesNames = ({day, getActivityNames, date }) => {
                     return (
                         dayActivities.map(activity => {
                             return(
-                            <li>{activity.name}</li>
+                            <li className="summaryActivityName">{activity.name}</li>
                             )})
                     )
                 }else {

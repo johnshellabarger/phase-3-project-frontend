@@ -192,6 +192,7 @@ p{
     border-radius: 10px;
     padding:10px;
     margin-bottom:20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .activitiesTime{
@@ -398,9 +399,10 @@ textarea {
 
 }
 
-.book{
-    height: 10px;
-    margin-bottom:10px;
+.summaryActivityName{
+    font-size: 1.4rem;
+    font-weight: lighter;
+    list-style-position: inside;
 }
 
 #activitiesSubheading{
@@ -412,4 +414,5 @@ textarea {
     margin-top:-75px;
     padding-top:40px;
     border-top: 20px solid rgb(252, 101, 1);
+
 }

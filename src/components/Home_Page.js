@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import PlanTrip from './PlanTrip_Page';
-import TripList from './TripList'
+import TripList from './TripList/TripList'
 function Home(){
     const [trips, setTrips] = useState([])
     const [isHid, setIsHid] = useState(false)

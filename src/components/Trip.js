@@ -66,7 +66,7 @@ const Trip = ({ trip }) => {
     
     }, [])
 
-    console.log(thisTrip.days)
+    // console.log(thisTrip.days)
 
     return (
         <div>

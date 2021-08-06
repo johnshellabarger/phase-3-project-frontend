@@ -66,7 +66,7 @@ const NewActivityForm = ({ getActivityNames, setGetActivityNames, day_id, onNewA
                 <input id='activityForm' placeholder='description' name='description' value={newActivity.description} onChange={handleValue}/>
                 <select id='start_time' name='start_time' value={newActivity.start_time} onChange={handleValue}>
                     <option value='start_time' selected>Start Time</option>
-                    <option value='1:00'>1:00</option>
+                    <option value='1:00pm'>1:00</option>
                     <option value='1:30'>1:30</option>
                     <option value='2:00'>2:00</option>
                     <option value='2:30'>2:30</option>
@@ -84,7 +84,7 @@ const NewActivityForm = ({ getActivityNames, setGetActivityNames, day_id, onNewA
                     <option value='8:30'>8:30</option>
                     <option value='9:00'>9:00</option>
                     <option value='9:30'>9:30</option>
-                    <option value='10:00'>10:00</option>
+                    <option value='10:00am'>10:00</option>
                     <option value='10:30'>10:30</option>
                     <option value='11:00'>11:00</option>
                     <option value='11:30'>11:30</option>

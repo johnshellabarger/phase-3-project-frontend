@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import ActivitySummary from './Activities/ActivitySummary.js'
-import DaysContainer from './Days/DaysContainer.js'
+import ActivitySummary from '../Activities/ActivitySummary.js'
+import DaysContainer from '../Days/DaysContainer.js'
 import { FaChevronDown,FaCalendar, FaList } from "react-icons/fa"
 
 

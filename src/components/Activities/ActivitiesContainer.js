@@ -7,7 +7,11 @@ const ActivitiesContainer = ({day_id, activities, setActivities, getActivityName
     return (
         <div>
             <ActivitiesList activities={activities} setActivities={setActivities}/>
-            <NewActivityForm getActivityNames={getActivityNames} setGetActivityNames={setGetActivityNames} day_id={day_id} onNewActivitySubmit={onNewActivitySubmit}/>
+            <NewActivityForm 
+                getActivityNames={getActivityNames} 
+                setGetActivityNames={setGetActivityNames} 
+                day_id={day_id} 
+                onNewActivitySubmit={onNewActivitySubmit}/>
 
         </div>
     )

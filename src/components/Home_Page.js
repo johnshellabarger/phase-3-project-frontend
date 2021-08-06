@@ -15,7 +15,7 @@ function Home(){
         <div>
             <h1 className='logo'>travelog &#128745;</h1>
             <PlanTrip />
-            <button onClick={handleOnClick}>View Your Trips</button>
+            {/* <button onClick={handleOnClick}>View Your Trips</button> */}
             {isHid ? (<TripList trips={trips}/>) : (null)} 
         </div>
 

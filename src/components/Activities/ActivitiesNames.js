@@ -27,7 +27,7 @@ const ActivitiesNames = ({day, getActivityNames, date }) => {
                     return (
                         dayActivities.map(activity => {
                             return(
-                            <li className="summaryActivityName">{activity.name}</li>
+                            <h4 className="summaryActivityName">{activity.name}</h4>
                             )})
                     )
                 }else {
@@ -38,10 +38,8 @@ const ActivitiesNames = ({day, getActivityNames, date }) => {
     return (
 
         <>
-            <li className='activitySummaryDate'>{`${dayOfWeek} ${day.date.split('T')[0].split('-')[1]}-${day.date.split('T')[0].split('-')[2]}`}</li>
-            <ul>
+            <h5 className='activitySummaryDate'>{`${dayOfWeek} ${day.date.split('T')[0].split('-')[1]}-${day.date.split('T')[0].split('-')[2]}`}</h5>
                 {renderActivities()}
-            </ul>
         </>
     )
 }

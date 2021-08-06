@@ -375,3 +375,11 @@ textarea {
     color:#fd8f11;
     margin-right:5px
 }
+
+
+.activitySummaryDate{
+    font-size: 1.7rem;
+    font-weight: bold;
+    list-style-position: inside;
+
+}

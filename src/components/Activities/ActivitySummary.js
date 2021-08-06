@@ -9,7 +9,7 @@ function ActivitySummary({ days, isListShowing, getActivityNames, dayActivities,
             {days.map(day => {
                 return (
                     <>
-                    <li>{day.date}</li>
+                    <li className='activitySummaryDate'>{day.date}</li>
                     <ActivitiesNames 
                         day={day} 
                         getActivityNames={getActivityNames} 

@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 
 const DayContainer = ({ daysOnTrip, trip, getActivityNames, setGetActivityNames }) => {
-    const [text,setText] = useState([{note_text: 'Write or paste anything here: how to get around, tips and tricks'}])
+    const [text,setText] = useState('Write or paste anything here: how to get around, tips and tricks')
 
 
 
